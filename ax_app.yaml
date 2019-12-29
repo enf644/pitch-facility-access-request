@@ -1,0 +1,32 @@
+Code name: pitch-facility-access-request
+Root folder: 667b6821-14d4-4a33-845e-b364021474bc
+Forms:
+- PitchFacilityAccessRequest
+Folders:
+- guid: 667b6821-14d4-4a33-845e-b364021474bc
+  name: Facility Access Request
+  parent: None
+  position: '0'
+Root page: 4aef0806-e729-4e9c-affe-4bc41f4c8706
+Pages:
+- guid: 4aef0806-e729-4e9c-affe-4bc41f4c8706
+  name: Pitch Facility Access Request
+  db_name: PitchFacilityAccessRequest
+  position:
+  parent: 7ac81f1f-6168-4576-827f-37b5be6e32d8
+- guid: f872b2fd-eaea-4bc2-8276-e573256fe41a
+  name: My requests
+  db_name:
+  position:
+  parent: 4aef0806-e729-4e9c-affe-4bc41f4c8706
+- guid: 9bc276ab-4ba5-4f98-9ac1-107dd5ec79f8
+  name: Manager Approval
+  db_name:
+  position:
+  parent: 4aef0806-e729-4e9c-affe-4bc41f4c8706
+- guid: de930100-2958-48cf-9eac-9e7be822e4b6
+  name: Access Provisioning
+  db_name:
+  position:
+  parent: 4aef0806-e729-4e9c-affe-4bc41f4c8706
+Ax version: 0.34.0

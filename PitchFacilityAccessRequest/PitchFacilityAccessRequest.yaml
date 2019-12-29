@@ -1,0 +1,615 @@
+AxForm:
+  guid: 0ca321a8-ba03-496f-a05d-48235881a27d
+  name: Facility Access Request
+  db_name: PitchFacilityAccessRequest
+  parent: 667b6821-14d4-4a33-845e-b364021474bc
+  position: 0
+  tom_label: '{{guid}}'
+  icon: unlock-alt
+AxFields:
+- guid: 9943a82a-4aa1-4459-ae61-3d1ba79c8706
+  name: Default tab
+  db_name:
+  position: 0
+  options_json:
+  private_options_json:
+  field_type_tag:
+  is_tab: true
+  is_required: false
+  is_whole_row: false
+  parent: None
+- guid: 4b26770d-1aba-4f03-8222-162e5cdfa0f7
+  name: Registration number
+  db_name: axNum
+  position: 0
+  options_json: '{"comparator":"string"}'
+  private_options_json: '{"algorithm":"# first value of counter\nif not ax.counter:\n    ax.counter=1\n#
+    ax.value will be registration number\nax.value=f\"AC{ax.counter}\"\n# Increment
+    counter\nax.counter=str(int(ax.counter) + 1)","counterKey":"0ca321a8-ba03-496f-a05d-48235881a27d"}'
+  field_type_tag: AxNum
+  is_tab: false
+  is_required: false
+  is_whole_row: false
+  parent: 9943a82a-4aa1-4459-ae61-3d1ba79c8706
+- guid: 9a91c82d-ae1c-4714-8692-e8b4026f6811
+  name: Current State
+  db_name: rowState
+  position: 1
+  options_json: '{}'
+  private_options_json:
+  field_type_tag: AxState
+  is_tab: false
+  is_required: false
+  is_whole_row: false
+  parent: 9943a82a-4aa1-4459-ae61-3d1ba79c8706
+- guid: 6ea56d38-c742-4cab-9cdf-2b4419ff9a81
+  name: Request Date
+  db_name: date
+  position: 2
+  options_json: '{"mask":"+1 (###) ###-##-##","defaultNow":true}'
+  private_options_json:
+  field_type_tag: AxDate
+  is_tab: false
+  is_required: false
+  is_whole_row: false
+  parent: 9943a82a-4aa1-4459-ae61-3d1ba79c8706
+- guid: 239d9144-e859-4a0c-913b-a1ed94e86968
+  name: Requester Department
+  db_name: dep
+  position: 3
+  options_json: '{}'
+  private_options_json:
+  field_type_tag: AxString
+  is_tab: false
+  is_required: false
+  is_whole_row: false
+  parent: 9943a82a-4aa1-4459-ae61-3d1ba79c8706
+- guid: 59f107f4-af61-4384-9950-79f244e5aa71
+  name: Requester
+  db_name: author
+  position: 4
+  options_json: '{}'
+  private_options_json:
+  field_type_tag: AxAuthor
+  is_tab: false
+  is_required: false
+  is_whole_row: false
+  parent: 9943a82a-4aa1-4459-ae61-3d1ba79c8706
+- guid: 5c1e3b57-ca81-4376-9e82-991ebc514e15
+  name: Requester Contact Number
+  db_name: telephone
+  position: 5
+  options_json: '{}'
+  private_options_json:
+  field_type_tag: AxTelephone
+  is_tab: false
+  is_required: false
+  is_whole_row: false
+  parent: 9943a82a-4aa1-4459-ae61-3d1ba79c8706
+- guid: c249ea93-d2de-46cc-a013-5c2ca37b05ef
+  name: On Behalf of Someone Else?
+  db_name: onBehalf
+  position: 6
+  options_json: '{}'
+  private_options_json:
+  field_type_tag: AxSwitch
+  is_tab: false
+  is_required: false
+  is_whole_row: false
+  parent: 9943a82a-4aa1-4459-ae61-3d1ba79c8706
+- guid: 1307d1b9-695e-4b33-9c3b-b42f796dd8df
+  name: Request Type
+  db_name: type
+  position: 7
+  options_json: '{"items":"[\n    {\"text\": \"New Access\",\"value\": \"1\"},\n    {\"text\":
+    \"Remove Access\",\"value\": \"2\"},\n    {\"text\": \"Modify Access\",\"value\":
+    \"3\"},\n    {\"text\": \"Other\",\"value\": \"4\"}\n]"}'
+  private_options_json:
+  field_type_tag: AxChoise
+  is_tab: false
+  is_required: true
+  is_whole_row: false
+  parent: 9943a82a-4aa1-4459-ae61-3d1ba79c8706
+- guid: f2f50bc7-3797-4a7e-a456-8257c06fca7f
+  name: Access Description
+  db_name: text
+  position: 8
+  options_json: '{}'
+  private_options_json:
+  field_type_tag: AxText
+  is_tab: false
+  is_required: false
+  is_whole_row: true
+  parent: 9943a82a-4aa1-4459-ae61-3d1ba79c8706
+- guid: b41d886f-7e3b-40cb-b34d-83d3991cd0c9
+  name: Custom html
+  db_name: html
+  position: 9
+  options_json: '{}'
+  private_options_json: '{"code":"# ax.value will be displayed\nax.value = f\"\"\"\n    <h2>User
+    Details<\/h2>\n\"\"\""}'
+  field_type_tag: AxHtml
+  is_tab: false
+  is_required: false
+  is_whole_row: true
+  parent: 9943a82a-4aa1-4459-ae61-3d1ba79c8706
+- guid: 1dd067d0-ff01-401e-b211-8f2e0114009b
+  name: User Status
+  db_name: userStatus
+  position: 10
+  options_json: '{"items":"[\n    {\n        \"text\": \"Permanent\",\n        \"value\":
+    \"1\"\n    },\n    {\n        \"text\": \"Temporary\",\n        \"value\": \"2\"\n    },\n    {\n        \"text\":
+    \"Contractor\",\n        \"value\": \"3\"\n    }\n]"}'
+  private_options_json:
+  field_type_tag: AxChoise
+  is_tab: false
+  is_required: true
+  is_whole_row: false
+  parent: 9943a82a-4aa1-4459-ae61-3d1ba79c8706
+- guid: 4ddc1055-1e8d-42ef-b4ff-f0a140ef0651
+  name: User Name
+  db_name: userName
+  position: 11
+  options_json: '{}'
+  private_options_json:
+  field_type_tag: AxString
+  is_tab: false
+  is_required: true
+  is_whole_row: false
+  parent: 9943a82a-4aa1-4459-ae61-3d1ba79c8706
+- guid: 2e1a036f-77f9-4cfa-8be3-9a30f32e1bfd
+  name: User Organization
+  db_name: userOrg
+  position: 12
+  options_json: '{}'
+  private_options_json:
+  field_type_tag: AxString
+  is_tab: false
+  is_required: true
+  is_whole_row: false
+  parent: 9943a82a-4aa1-4459-ae61-3d1ba79c8706
+- guid: 542e3de0-d4d6-4674-b7c2-9fcc2f2a725d
+  name: User Designation
+  db_name: userDes
+  position: 13
+  options_json: '{}'
+  private_options_json:
+  field_type_tag: AxString
+  is_tab: false
+  is_required: true
+  is_whole_row: false
+  parent: 9943a82a-4aa1-4459-ae61-3d1ba79c8706
+- guid: 4e69c341-2c8d-4c9d-88a4-2b382d07e08e
+  name: Custom html 2
+  db_name: html2
+  position: 14
+  options_json: '{}'
+  private_options_json: '{"code":"# ax.value will be displayed\nax.value = f\"\"\"\n    <h2>Facility
+    Details<\/h2>\n\"\"\""}'
+  field_type_tag: AxHtml
+  is_tab: false
+  is_required: false
+  is_whole_row: true
+  parent: 9943a82a-4aa1-4459-ae61-3d1ba79c8706
+- guid: 5e42749a-eaec-46ec-8ac1-f4ec74da07b5
+  name: Access Type
+  db_name: accessType
+  position: 15
+  options_json: '{"items":"[\n    {\n        \"text\": \"Entire Building\",\n        \"value\":
+    \"1\"\n    },\n    {\n        \"text\": \"Specific Floor\",\n        \"value\":
+    \"2\"\n    },\n    {\n        \"text\": \"Specific Room\",\n        \"value\":
+    \"3\"\n    }\n]"}'
+  private_options_json:
+  field_type_tag: AxChoise
+  is_tab: false
+  is_required: true
+  is_whole_row: false
+  parent: 9943a82a-4aa1-4459-ae61-3d1ba79c8706
+- guid: fc7e2f4e-5145-455a-b866-29e4eb6146d3
+  name: Building ID
+  db_name: building
+  position: 16
+  options_json: '{}'
+  private_options_json:
+  field_type_tag: AxString
+  is_tab: false
+  is_required: true
+  is_whole_row: false
+  parent: 9943a82a-4aa1-4459-ae61-3d1ba79c8706
+- guid: f1de04ba-d705-49dc-9236-9211e976357c
+  name: Floor ID
+  db_name: floor
+  position: 17
+  options_json: '{}'
+  private_options_json:
+  field_type_tag: AxString
+  is_tab: false
+  is_required: true
+  is_whole_row: false
+  parent: 9943a82a-4aa1-4459-ae61-3d1ba79c8706
+- guid: 038e2ccc-15b3-4e76-aa53-5169e14273bc
+  name: Room ID
+  db_name: room
+  position: 18
+  options_json: '{}'
+  private_options_json:
+  field_type_tag: AxString
+  is_tab: false
+  is_required: true
+  is_whole_row: false
+  parent: 9943a82a-4aa1-4459-ae61-3d1ba79c8706
+- guid: b40b8c63-ff35-43f5-a39c-61f118497c97
+  name: Access Description
+  db_name: description
+  position: 19
+  options_json: '{}'
+  private_options_json:
+  field_type_tag: AxText
+  is_tab: false
+  is_required: false
+  is_whole_row: false
+  parent: 9943a82a-4aa1-4459-ae61-3d1ba79c8706
+- guid: a1cafe05-62cd-4e6f-932a-43edb7fec098
+  name: Special Instructions (if any)
+  db_name: special
+  position: 20
+  options_json: '{}'
+  private_options_json:
+  field_type_tag: AxText
+  is_tab: false
+  is_required: false
+  is_whole_row: false
+  parent: 9943a82a-4aa1-4459-ae61-3d1ba79c8706
+AxMetrics:
+- guid: 73131080-46fe-45d3-8b3f-2be1beea1c84
+  key: 0ca321a8-ba03-496f-a05d-48235881a27d
+  value: '2'
+AxGrids:
+- guid: 00942eb5-c28d-4f44-8b42-1a251950d6e7
+  name: All requests
+  db_name: All
+  position: 1
+  options_json: '{"enableQuickSearch":false,"enableFlatMode":false,"enableColumnsResize":true,"enableFiltering":true,"enableSorting":true,"enableOpenForm":true,"enableActions":true,"rowHeight":45,"pinned":0,"widths":{"axNum":134,"axState":171}}'
+  is_default_view: true
+  columns:
+  - guid: 49359dae-c7fb-441f-8c55-9d1a73509280
+    position: 0
+    options_json:
+    field_guid: 4b26770d-1aba-4f03-8222-162e5cdfa0f7
+    column_type: columns
+    aggregation_type:
+  - guid: ff855c69-fdba-403b-bf72-2909171c74d2
+    position: 1
+    options_json:
+    field_guid: 4ddc1055-1e8d-42ef-b4ff-f0a140ef0651
+    column_type: columns
+    aggregation_type:
+  - guid: 38b86111-5995-492e-bc2c-44d52a938689
+    position: 2
+    options_json:
+    field_guid: 239d9144-e859-4a0c-913b-a1ed94e86968
+    column_type: columns
+    aggregation_type:
+  - guid: 2d01ddad-7fd6-4a05-83c7-1ba1831c8ca3
+    position: 3
+    options_json:
+    field_guid: 6ea56d38-c742-4cab-9cdf-2b4419ff9a81
+    column_type: columns
+    aggregation_type:
+  - guid: 4bfca095-012a-42bf-b412-bd0809730304
+    position: 4
+    options_json:
+    field_guid: 9a91c82d-ae1c-4714-8692-e8b4026f6811
+    column_type: columns
+    aggregation_type:
+- guid: 025f8656-adbd-46c7-bbb7-0191d3c90e59
+  name: My requests
+  db_name: My
+  position: 2
+  options_json: '{"enableQuickSearch":true,"enableFlatMode":false,"enableColumnsResize":true,"enableFiltering":true,"enableSorting":true,"enableOpenForm":true,"enableActions":true,"rowHeight":45,"pinned":0,"enableTitle":true}'
+  is_default_view: false
+  columns:
+  - guid: 05725a62-e5e2-4137-a9e6-2522a48fadb3
+    position: 0
+    options_json:
+    field_guid: 4b26770d-1aba-4f03-8222-162e5cdfa0f7
+    column_type: columns
+    aggregation_type:
+  - guid: 65eaadbf-a365-4796-9d0b-a38d7a5a0642
+    position: 1
+    options_json:
+    field_guid: 4ddc1055-1e8d-42ef-b4ff-f0a140ef0651
+    column_type: columns
+    aggregation_type:
+  - guid: 277b83a9-8405-481d-8cf7-928da5541f11
+    position: 2
+    options_json:
+    field_guid: 6ea56d38-c742-4cab-9cdf-2b4419ff9a81
+    column_type: columns
+    aggregation_type:
+  - guid: a924d2c3-b4ac-410f-8888-76feada87ead
+    position: 3
+    options_json:
+    field_guid: 9a91c82d-ae1c-4714-8692-e8b4026f6811
+    column_type: columns
+    aggregation_type:
+- guid: 82261195-780f-46d5-9d86-deaac759f6fd
+  name: Manager Approval
+  db_name: Manager
+  position: 3
+  options_json: '{"enableQuickSearch":true,"enableFlatMode":false,"enableColumnsResize":true,"enableFiltering":true,"enableSorting":true,"enableOpenForm":true,"enableActions":false,"rowHeight":45,"pinned":0,"enableTitle":true}'
+  is_default_view: false
+  columns:
+  - guid: 1b8a1b12-2ee5-4219-ba14-664f34460b75
+    position: 0
+    options_json:
+    field_guid: 4b26770d-1aba-4f03-8222-162e5cdfa0f7
+    column_type: columns
+    aggregation_type:
+  - guid: a0b04710-5f44-4cb3-b089-e7012551efa1
+    position: 1
+    options_json:
+    field_guid: 6ea56d38-c742-4cab-9cdf-2b4419ff9a81
+    column_type: columns
+    aggregation_type:
+  - guid: a1753b72-b425-4818-bed2-ec1be5db65b2
+    position: 2
+    options_json:
+    field_guid: 239d9144-e859-4a0c-913b-a1ed94e86968
+    column_type: columns
+    aggregation_type:
+  - guid: 98800544-9c8a-4fbf-a77d-f56a2153d071
+    position: 3
+    options_json:
+    field_guid: 4ddc1055-1e8d-42ef-b4ff-f0a140ef0651
+    column_type: columns
+    aggregation_type:
+- guid: ace92c0e-725b-433d-97b5-8614ad1a8b73
+  name: Access Provisioning
+  db_name: Pro
+  position: 4
+  options_json: '{"enableQuickSearch":true,"enableFlatMode":false,"enableColumnsResize":true,"enableFiltering":true,"enableSorting":true,"enableOpenForm":true,"enableActions":false,"rowHeight":45,"pinned":0,"enableTitle":true}'
+  is_default_view: false
+  columns:
+  - guid: 1114ae46-d71e-462a-87fa-a7b90416e8b3
+    position: 0
+    options_json:
+    field_guid: 4b26770d-1aba-4f03-8222-162e5cdfa0f7
+    column_type: columns
+    aggregation_type:
+  - guid: 16b883a1-099a-44a4-b902-2a62de316e72
+    position: 1
+    options_json:
+    field_guid: 6ea56d38-c742-4cab-9cdf-2b4419ff9a81
+    column_type: columns
+    aggregation_type:
+  - guid: 89639931-969c-44ff-b0be-c8fdc1b7c295
+    position: 2
+    options_json:
+    field_guid: 4ddc1055-1e8d-42ef-b4ff-f0a140ef0651
+    column_type: columns
+    aggregation_type:
+AxRoles:
+- guid: d72de299-f1c8-4b08-994e-f4b879872c37
+  name: All users
+  icon:
+  is_dynamic: false
+- guid: 1df64fd6-82fd-4073-8940-d2009388a028
+  name: Security manager
+  icon:
+  is_dynamic: false
+- guid: edb94e37-1999-41bb-aba8-53abbf015d78
+  name: Security
+  icon:
+  is_dynamic: false
+- guid: a9e7d65a-6d90-4638-9aa8-a921ca84884d
+  name: Author
+  icon: fas fa-user-cog
+  is_dynamic: true
+AxStates:
+- guid: eb87572b-6ba8-4768-a303-56512e26bb5c
+  name: Start
+  is_start: true
+  is_deleted: false
+  is_all: false
+  x: -2.0
+  y: -133.0
+  roles:
+  - d72de299-f1c8-4b08-994e-f4b879872c37
+- guid: 1510c05d-49c3-41b8-88c2-688389b1aaf2
+  name: Manager Approval
+  is_start: false
+  is_deleted: false
+  is_all: false
+  x: 0.0
+  y: 0.0
+  roles:
+  - d72de299-f1c8-4b08-994e-f4b879872c37
+  - 1df64fd6-82fd-4073-8940-d2009388a028
+  - a9e7d65a-6d90-4638-9aa8-a921ca84884d
+- guid: 38b1b6b1-25a2-4bb0-b479-c62e3f182425
+  name: Deleted
+  is_start: false
+  is_deleted: true
+  is_all: false
+  x: 357.0
+  y: 129.0
+  roles: []
+- guid: 0d35872b-49e2-4363-94a5-fc276187a866
+  name: All
+  is_start: false
+  is_deleted: false
+  is_all: true
+  x: 359.0
+  y: 284.0
+  roles: []
+- guid: 86499237-df10-4887-99e8-2997c7c87990
+  name: Archive
+  is_start: false
+  is_deleted: false
+  is_all: false
+  x: 6.703125
+  y: 264.5
+  roles:
+  - 1df64fd6-82fd-4073-8940-d2009388a028
+- guid: cf2d1eb1-ac8b-46cf-b881-e26319f511eb
+  name: Access Provisioning
+  is_start: false
+  is_deleted: false
+  is_all: false
+  x: 0.703125
+  y: 132.5
+  roles:
+  - d72de299-f1c8-4b08-994e-f4b879872c37
+  - edb94e37-1999-41bb-aba8-53abbf015d78
+  - 1df64fd6-82fd-4073-8940-d2009388a028
+  - a9e7d65a-6d90-4638-9aa8-a921ca84884d
+AxActions:
+- guid: c972531c-5ccb-4552-b893-b3964681e3c0
+  name: Add request
+  db_name:
+  from_state_guid: eb87572b-6ba8-4768-a303-56512e26bb5c
+  to_state_guid: 1510c05d-49c3-41b8-88c2-688389b1aaf2
+  confirm_text:
+  close_modal: true
+  icon:
+  radius:
+  roles:
+  - d72de299-f1c8-4b08-994e-f4b879872c37
+- guid: 39190ed9-e012-46c8-a899-ae66c278d34a
+  name: Update
+  db_name:
+  from_state_guid: 1510c05d-49c3-41b8-88c2-688389b1aaf2
+  to_state_guid: 1510c05d-49c3-41b8-88c2-688389b1aaf2
+  confirm_text:
+  close_modal: true
+  icon:
+  radius:
+  roles: []
+- guid: 3162b4bc-a720-4fc0-bd78-2ab6042ff9d9
+  name: Approve
+  db_name:
+  from_state_guid: 1510c05d-49c3-41b8-88c2-688389b1aaf2
+  to_state_guid: cf2d1eb1-ac8b-46cf-b881-e26319f511eb
+  confirm_text:
+  close_modal: true
+  icon:
+  radius:
+  roles:
+  - 1df64fd6-82fd-4073-8940-d2009388a028
+- guid: 0efda527-e6b5-4963-a110-89a8cae326e0
+  name: Cancel request
+  db_name:
+  from_state_guid: 0d35872b-49e2-4363-94a5-fc276187a866
+  to_state_guid: 86499237-df10-4887-99e8-2997c7c87990
+  confirm_text:
+  close_modal: true
+  icon:
+  radius:
+  roles:
+  - 1df64fd6-82fd-4073-8940-d2009388a028
+  - a9e7d65a-6d90-4638-9aa8-a921ca84884d
+  - edb94e37-1999-41bb-aba8-53abbf015d78
+- guid: f834f88c-7a7c-403f-ada8-0374e832f9fb
+  name: Archive
+  db_name:
+  from_state_guid: cf2d1eb1-ac8b-46cf-b881-e26319f511eb
+  to_state_guid: 86499237-df10-4887-99e8-2997c7c87990
+  confirm_text:
+  close_modal: true
+  icon:
+  radius:
+  roles:
+  - 1df64fd6-82fd-4073-8940-d2009388a028
+  - edb94e37-1999-41bb-aba8-53abbf015d78
+AxRoleFieldPermission:
+- role_guid: d72de299-f1c8-4b08-994e-f4b879872c37
+  state_guid: eb87572b-6ba8-4768-a303-56512e26bb5c
+  field_guid: None
+  read: true
+  edit: true
+- role_guid: d72de299-f1c8-4b08-994e-f4b879872c37
+  state_guid: 1510c05d-49c3-41b8-88c2-688389b1aaf2
+  field_guid: 4b26770d-1aba-4f03-8222-162e5cdfa0f7
+  read: true
+  edit: false
+- role_guid: d72de299-f1c8-4b08-994e-f4b879872c37
+  state_guid: 1510c05d-49c3-41b8-88c2-688389b1aaf2
+  field_guid: 6ea56d38-c742-4cab-9cdf-2b4419ff9a81
+  read: true
+  edit: false
+- role_guid: d72de299-f1c8-4b08-994e-f4b879872c37
+  state_guid: 1510c05d-49c3-41b8-88c2-688389b1aaf2
+  field_guid: 239d9144-e859-4a0c-913b-a1ed94e86968
+  read: true
+  edit: false
+- role_guid: d72de299-f1c8-4b08-994e-f4b879872c37
+  state_guid: 1510c05d-49c3-41b8-88c2-688389b1aaf2
+  field_guid: 4ddc1055-1e8d-42ef-b4ff-f0a140ef0651
+  read: true
+  edit: false
+- role_guid: d72de299-f1c8-4b08-994e-f4b879872c37
+  state_guid: 1510c05d-49c3-41b8-88c2-688389b1aaf2
+  field_guid: 9a91c82d-ae1c-4714-8692-e8b4026f6811
+  read: true
+  edit: false
+- role_guid: 1df64fd6-82fd-4073-8940-d2009388a028
+  state_guid: 1510c05d-49c3-41b8-88c2-688389b1aaf2
+  field_guid: None
+  read: true
+  edit: true
+- role_guid: a9e7d65a-6d90-4638-9aa8-a921ca84884d
+  state_guid: 1510c05d-49c3-41b8-88c2-688389b1aaf2
+  field_guid: None
+  read: true
+  edit: false
+- role_guid: d72de299-f1c8-4b08-994e-f4b879872c37
+  state_guid: cf2d1eb1-ac8b-46cf-b881-e26319f511eb
+  field_guid: 4b26770d-1aba-4f03-8222-162e5cdfa0f7
+  read: true
+  edit: false
+- role_guid: d72de299-f1c8-4b08-994e-f4b879872c37
+  state_guid: cf2d1eb1-ac8b-46cf-b881-e26319f511eb
+  field_guid: 6ea56d38-c742-4cab-9cdf-2b4419ff9a81
+  read: true
+  edit: false
+- role_guid: d72de299-f1c8-4b08-994e-f4b879872c37
+  state_guid: cf2d1eb1-ac8b-46cf-b881-e26319f511eb
+  field_guid: 239d9144-e859-4a0c-913b-a1ed94e86968
+  read: true
+  edit: false
+- role_guid: d72de299-f1c8-4b08-994e-f4b879872c37
+  state_guid: cf2d1eb1-ac8b-46cf-b881-e26319f511eb
+  field_guid: 59f107f4-af61-4384-9950-79f244e5aa71
+  read: true
+  edit: false
+- role_guid: d72de299-f1c8-4b08-994e-f4b879872c37
+  state_guid: cf2d1eb1-ac8b-46cf-b881-e26319f511eb
+  field_guid: 4ddc1055-1e8d-42ef-b4ff-f0a140ef0651
+  read: true
+  edit: false
+- role_guid: d72de299-f1c8-4b08-994e-f4b879872c37
+  state_guid: cf2d1eb1-ac8b-46cf-b881-e26319f511eb
+  field_guid: 9a91c82d-ae1c-4714-8692-e8b4026f6811
+  read: true
+  edit: false
+- role_guid: 1df64fd6-82fd-4073-8940-d2009388a028
+  state_guid: cf2d1eb1-ac8b-46cf-b881-e26319f511eb
+  field_guid: None
+  read: true
+  edit: true
+- role_guid: edb94e37-1999-41bb-aba8-53abbf015d78
+  state_guid: cf2d1eb1-ac8b-46cf-b881-e26319f511eb
+  field_guid: None
+  read: true
+  edit: false
+- role_guid: a9e7d65a-6d90-4638-9aa8-a921ca84884d
+  state_guid: cf2d1eb1-ac8b-46cf-b881-e26319f511eb
+  field_guid: None
+  read: true
+  edit: false
+- role_guid: 1df64fd6-82fd-4073-8940-d2009388a028
+  state_guid: 86499237-df10-4887-99e8-2997c7c87990
+  field_guid: None
+  read: true
+  edit: false
