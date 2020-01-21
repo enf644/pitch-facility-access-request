@@ -473,7 +473,7 @@ AxActions:
   confirm_text:
   close_modal: true
   icon:
-  radius:
+  radius: 0.0
   roles:
   - d72de299-f1c8-4b08-994e-f4b879872c37
 - guid: 39190ed9-e012-46c8-a899-ae66c278d34a
@@ -484,7 +484,7 @@ AxActions:
   confirm_text:
   close_modal: true
   icon:
-  radius:
+  radius: 0.0
   roles: []
 - guid: 3162b4bc-a720-4fc0-bd78-2ab6042ff9d9
   name: Approve
@@ -494,7 +494,7 @@ AxActions:
   confirm_text:
   close_modal: true
   icon:
-  radius:
+  radius: 0.0
   roles:
   - 1df64fd6-82fd-4073-8940-d2009388a028
 - guid: 0efda527-e6b5-4963-a110-89a8cae326e0
@@ -505,7 +505,7 @@ AxActions:
   confirm_text:
   close_modal: true
   icon:
-  radius:
+  radius: 0.0
   roles:
   - 1df64fd6-82fd-4073-8940-d2009388a028
   - a9e7d65a-6d90-4638-9aa8-a921ca84884d
@@ -518,7 +518,7 @@ AxActions:
   confirm_text:
   close_modal: true
   icon:
-  radius:
+  radius: 0.0
   roles:
   - 1df64fd6-82fd-4073-8940-d2009388a028
   - edb94e37-1999-41bb-aba8-53abbf015d78
